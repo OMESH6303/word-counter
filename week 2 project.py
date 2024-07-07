@@ -1,27 +1,24 @@
-def word_count(text):
-    """
-    Function to count the number of words in a given text.
-    """
+
+       # Text Analyzer Tool
+
+def count_words(text):
     words = text.split()
     return len(words)
 
-def main():
-    """
-    Main function to handle user input, call word_count function, and display the result.
-    """
-    print("Welcome to Word Counter!")
-    print("Please enter a sentence or paragraph:")
-    
-    # Taking user input
-    user_input = input()
-    
-    # Checking if input is empty
-    if not user_input.strip():
-        print("Error: Input is empty.")
-    else:
-        # Counting words
-        count = word_count(user_input)
-        print(f"Word count: {count}")
+def count_specific_word(text, word):
+    words = text.split()
+    return words.count(word)
 
-if __name__ == "__main__":
-    main()
+def analyze_text(text):
+    word_count = count_words(text)
+    print(f"Total words: {word_count}")
+    
+    specific_word = input("Enter a word to count its occurrences: ")
+    word_frequency = count_specific_word(text, specific_word)
+    print(f"Occurrences of '{specific_word}': {word_frequency}")
+
+# Example text for analysis
+example_text = "Python is a versatile programming language. It is used for web development, data analysis, automation, and much more."
+
+# Running the text analyzer
+analyze_text(example_text)
